@@ -1,3 +1,6 @@
+# Password Generator
+
+
 This is a password generator that can generate strong and secure passwords. It is written in Python and uses the `random` module to generate random characters. The `colorama` module is used to print text in different colors.
 
 The code is very simple to understand. The first few lines import the necessary modules. Then, a variable called `characters` is created that contains all the characters that can be used in a password.
