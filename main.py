@@ -20,16 +20,21 @@ EncodeType = str(input(Fore.YELLOW + "Do you want spacial characters of your pas
 if EncodeType=="y":
     characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+*/=!&/()>£#$½§{[]}ğüşiöçĞÜŞİÖÇ@∑€®₺¥üiöπ¨~`æ´¬¨∆^ğƒ∂ßæ≈∫~µ≤≥÷|><|"
 
-if EncodeType=="n":
+elif EncodeType=="n":
     characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
+else:
+    print("try again")
+    exit()
 
 lenght = int(input(Fore.RED + "Set the length of the password: "))
 alternarive = int(input("How many passwords to generate: " + Fore.WHITE))
+
 
 for i in range(alternarive):
     password = "".join(random.choice(characters) for _ in range(lenght))
     print(Fore.WHITE + f"generated password ->    " + Fore.BLUE + f"{password}")
     time.sleep(0.5)
+
 
 
