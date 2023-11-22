@@ -221,7 +221,7 @@ def password_checker():
 
         root.after(6000, lambda: update_listbox(f'Safety point (0-5): {safetyPoint}\n\n'))
     
-    check_button = Button(root, text="Check", font=("Helvetica", 15), bg=background, fg="black", command=check_password, width=30)
+    check_button = Button(root, text="Check", font=("Helvetica", 15, "bold"), bg=background, fg="black", command=check_password, width=30)
     check_button.place(x=100, y=150)
 
 def mainScreen():
