@@ -1,9 +1,13 @@
-# Password Generator and Checker
+# Password Generator and Checker (GUI and Terminal version)
 
 
 
-
+## Terminal Version
 https://github.com/mehmetkahya0/PasswordGenerator/assets/84154488/f1b35a7b-3bff-416f-bd0d-63bfee0b1225
+
+## GUI Version
+
+https://github.com/mehmetkahya0/PasswordGenerator/assets/84154488/6e783939-ff4b-4201-968d-a401a0f9723d
 
 
 
@@ -33,4 +37,7 @@ Here is a step-by-step explanation of the code:
 9. The password is printed to the console.
 10. The `time.sleep()` function is used to pause the program for 0.5 seconds between each password generation.
 
-I hope this helps you understand the code. Let me know if you have any other questions.
+- special thanks to @ayseguldemireel for better UI experiance.
+
+
+
