@@ -18,7 +18,7 @@ root = Tk()
 root.title("Password Algorithms")
 root.geometry("500x500")
 root.resizable(False, False)
-p1 = PhotoImage(file = 'key.png') 
+p1 = PhotoImage(file = 'key-1.png') 
 background = "#155b82"
 # Setting icon of master window 
 root.iconphoto(False, p1) 
