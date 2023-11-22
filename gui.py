@@ -14,7 +14,10 @@ root = Tk()
 root.title("Password Algorithms")
 root.geometry("500x500")
 root.resizable(False, False)
-root.iconbitmap("icon.ico")
+p1 = PhotoImage(file = 'key.png') 
+  
+# Setting icon of master window 
+root.iconphoto(False, p1) 
 root.config(bg="#186894")
 
 style = Style(root)
