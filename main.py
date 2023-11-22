@@ -4,15 +4,33 @@
 import random
 from colorama import Fore
 import time
+import math
 
 
-choice = int(input(Fore.BLUE +f'''  
-    '''+Fore.RED+"WELCOME TO THE PASSWORD-ALGORITHMS \n   - Mehmet Kahya -"+Fore.BLUE+'''        
+choice = int(input(Fore.BLUE 
+                   +f'''  
+                    WELCOME TO THE PASSWORD ALGORITHMS
+                    '''+Fore.RED+
+                    ''' 
+                    created by Mehmet Kahya
+                    '''
+                    +Fore.WHITE+
+                    f'''    
+                    .---------.
+                    |.-------.|
+                    ||>run#  ||
+                    ||       ||
+                    |"-------'|etf
+                    .-^---------^-.
+                    | ---~   AMiGA|
+                    "-------------'    
+                    {Fore.BLUE}
+                    <-- Select category --> 
+                    Password Generator [1]
+                    Password Chacker [2]
 
-    <-- Select category --> 
-    Password Generator [1]
-    Password Chacker [2]
----> ''' + Fore.WHITE))
+-----------------------> ''' 
++ Fore.WHITE))
 
 
 if choice == 1: # Password Generator
@@ -58,16 +76,16 @@ if choice == 2: # Password Checker
         
         password = input(Fore.GREEN + "Enter your password: " + Fore.WHITE)
         print("--------------------------------")
-        time.sleep(0.250)
+        time.sleep(0.5)
 
         #lenghtOfPassword = print("lenght of password: " + len(password))
         uppercaseInPassword = sum(1 for harf in password if harf.isupper())
         print(Fore.BLUE + f"number of uppercase letters: {uppercaseInPassword}")
-        time.sleep(0.250)
+        time.sleep(0.5)
 
         lowercaseInPassword = sum(1 for harf in password if harf.islower())
         print(f"number of lowercase letters: {lowercaseInPassword}")
-        time.sleep(0.250)
+        time.sleep(0.5)
 
         def check_password_safety(password):
             safetyPoint = 0
@@ -87,6 +105,22 @@ if choice == 2: # Password Checker
                 safetyPoint +=1
 
             print(Fore.RED + f"safety point of your password (0-5): {safetyPoint}" + Fore.WHITE)
-        check_password_safety(password)
 
+        try_speed_per_second = 100000000
+        characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+*/=!&/()>£#$½§{[]}ğüşiöçĞÜŞİÖÇ@∑€®₺¥üiöπ¨~`æ´¬¨∆^ğƒ∂ßæ≈∫~µ≤≥÷|><|"
+        lenOfCharacters = 62   
 
+        def calculate_password_cracking_time(password, try_speed_per_second, lenOfCharacters):
+            characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+*/=!&/()>£#$½§{[]}ğüşiöçĞÜŞİÖÇ@∑€®₺¥üiöπ¨~`æ´¬¨∆^ğƒ∂ßæ≈∫~µ≤≥÷|><|"
+            try_speed_per_second = 100000000
+            lenOfCharacters = 62
+
+            possible_password = lenOfCharacters ** len(password)
+            cracking_time_sec = possible_password / try_speed_per_second
+            cracking_time_day = cracking_time_sec / (60 * 60 * 24)
+
+            return cracking_time_day
+    
+
+        result = calculate_password_cracking_time(password, try_speed_per_second, lenOfCharacters)
+        print(f"Cracking password time: {result} sec")
