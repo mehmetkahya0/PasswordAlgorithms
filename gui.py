@@ -1,5 +1,8 @@
 #password algorithm gui app (main.py + gui.py)
 # 11/22/2023
+# Mehmet Kahya
+
+
 import time
 import random
 import math
@@ -8,6 +11,10 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter import font
 from tkinter.ttk import Style
+from passpwnedcheck.pass_checker import PassChecker
+
+
+
 
 root = Tk()
 root.title("Password Algorithms")
@@ -19,8 +26,13 @@ background = "#155b82"
 root.iconphoto(False, p1) 
 root.config(bg=background)
 
+
 style = Style(root)
 style.theme_use("clam")
+
+
+#change app name to "password algorithms"
+
 
 
 def credits():
@@ -186,12 +198,28 @@ def password_checker():
         def update_listbox(text):
             result_listbox.insert(END, text)
 
+
+
+        pass_checker = PassChecker()
+        is_leaked, count = pass_checker.is_password_compromised(password)
+
         root.after(0, lambda: update_listbox(f'Password: {password}'))
         root.after(1000, lambda: update_listbox(f'length of password: {len(password)}'))
         root.after(2000, lambda: update_listbox(f'number of Uppercase letters: {uppercaseInPassword}'))
         root.after(3000, lambda: update_listbox(f'number of Lowercase letters: {lowercaseInPassword}'))
         root.after(4000, lambda: update_listbox(f'number of digits: {digits}'))
         root.after(5000, lambda: update_listbox(f'Cracking time: {cracking_time_day} sec'))
+
+
+        if is_leaked:
+            (f'Your password has been leaked {count} times')
+            root.after(0, lambda: update_listbox(f'Was this password had pawned? : {count} times pwned. UNSAFE!!!'))
+            safetyPoint = "0 - Very Weak"
+        else:
+            print('Your password has not been leaked (yet)')
+            root.after(0, lambda: update_listbox(f'Was this password had pawned? : Your password is not pwned it is SAFE!!!'))
+
+
         root.after(6000, lambda: update_listbox(f'Safety point (0-5): {safetyPoint}\n\n'))
         
 
@@ -203,7 +231,7 @@ def password_checker():
 
 def mainScreen():
     global password_generator_button, password_checker_button, ascii_art, Mainheader
-    Mainheader = Label(root, text="Password Algorithms", font=("Helvetica", 30, "bold"), bg=background, fg="white")
+    Mainheader = Label(root, text="Password Algorithms", font=("Comfortaa", 30, "bold"), bg=background, fg="white")
     Mainheader.place(x=90, y=20)
 
     password_generator_button = Button(root, text="Password Generator", font=("Helvetica", 15, "bold"), bg=background, fg="black", command=password_generator, width=20, height=10)
@@ -220,8 +248,7 @@ def mainScreen():
     ██████╔╝███████║███████╗███████╗
     ██╔═══╝ ██╔══██║╚════██║╚════██║ 
     ██║     ██║  ██║███████║███████║    
-    ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝  
-''', font=("Helvatica", 10), bg=background, fg="white", cursor="heart red", justify="center", anchor="w")
+    ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝''', font=("Helvatica", 10), bg=background, fg="white", cursor="heart red", justify="center", anchor="w")
     ascii_art.place(x=75, y=300)
 
 
