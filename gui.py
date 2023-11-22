@@ -1,6 +1,8 @@
 #password algorithm gui app (main.py + gui.py)
 # 11/22/2023
+# Total spend time for this project: 5.5 hours
 # Mehmet Kahya
+
 import time
 from datetime import datetime
 import random
@@ -176,18 +178,15 @@ def password_checker():
         if any(not harf.isalnum() for harf in password):
             safetyPoint +=1
         
-        if safetyPoint == 0:
-            safetyPoint = "0 - Very Weak"
-        if safetyPoint == 1:
-            safetyPoint = "1 - Weak"
-        if safetyPoint == 2:
-            safetyPoint = "2 - Medium"
-        if safetyPoint == 3:
-            safetyPoint = "3 - Strong even though unsafe"
-        if safetyPoint == 4:
-            safetyPoint = "4 - Very Strong"
-        if safetyPoint == 5:
-            safetyPoint = "5 - Extremely Strong"
+
+        safetyPoint = {
+            0: "0 - Very Weak",
+            1: "1 - Weak",
+            2: "2 - Medium",
+            3: "3 - Strong",
+            4: "4 - Very Strong",
+            5: "5 - Extremely Strong"
+        }.get(safetyPoint, "Invalid")
 
         try_speed_per_second = 100000000
         lenOfCharacters = 62
