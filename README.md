@@ -45,6 +45,12 @@ This is a simple GUI application built with Python's Tkinter library. The applic
 
 - **Password Checking:** The application can also check the strength of a given password. It provides information about the number of uppercase letters, lowercase letters, and digits in the password. It also estimates the time it would take to crack the password and gives a safety score from 0 to 5.
 
+- **Have i been pwned** This function scans your password for all internet leaks and shows how many times it has been leaked.
+
+> [!NOTE]
+> I use haveibeenpwned.com api for this function.
+
+
 > [!IMPORTANT]
 > The 'safety_point' rating, where I show the strength of your password, is purely personal, not scientific.
 
