@@ -1,5 +1,5 @@
 #password algorithm gui app (main.py + gui.py)
-
+# 11/22/2023
 import time
 import random
 import math
