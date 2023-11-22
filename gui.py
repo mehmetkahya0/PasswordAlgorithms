@@ -193,7 +193,7 @@ def password_checker():
         cracking_time_sec = possible_password / try_speed_per_second
         cracking_time_day = cracking_time_sec / (60 * 60 * 24)
 
-        result_listbox = Listbox(root, width=100, height=10, font=("Helvetica", 17, "bold"))
+        result_listbox = Listbox(root, width=100, height=10, font=("Helvetica", 17))
         result_listbox.place(x=0, y=250)
         def update_listbox(text):
             result_listbox.insert(END, text)
@@ -213,11 +213,11 @@ def password_checker():
 
         if is_leaked:
             (f'Your password has been leaked {count} times')
-            root.after(0, lambda: update_listbox(f'Was this password had pawned? : {count} times pwned. UNSAFE!!!'))
+            root.after(0, lambda: update_listbox(f'Was this password had pawned? : {count} times pwned!!!'))
             safetyPoint = "0 - Very Weak"
         else:
             print('Your password has not been leaked (yet)')
-            root.after(0, lambda: update_listbox(f'Was this password had pawned? : Your password is not pwned it is SAFE!!!'))
+            root.after(0, lambda: update_listbox(f'Was this password had pawned? : Your password is not pwned '))
 
 
         root.after(6000, lambda: update_listbox(f'Safety point (0-5): {safetyPoint}\n\n'))
