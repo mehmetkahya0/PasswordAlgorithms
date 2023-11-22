@@ -46,7 +46,7 @@ def credits():
 
     Special thanks to: @ayseguldemireel for better UI experience. 
 
-    11/21/2023
+    11/22/2023
     ''')
 
 
