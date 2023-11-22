@@ -48,7 +48,7 @@ This is a simple GUI application built with Python's Tkinter library. The applic
 - **Have i been pwned** This function scans your password for all internet leaks and shows how many times it has been leaked.
 
 > [!NOTE]
-> I use haveibeenpwned.com api for this function.
+> I use **haveibeenpwned.com** api for this function.
 
 
 > [!IMPORTANT]
