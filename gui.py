@@ -2,6 +2,7 @@
 # 11/22/2023
 # Mehmet Kahya
 import time
+from datetime import datetime
 import random
 import math
 from tkinter import *
@@ -24,8 +25,21 @@ root.config(bg=background)
 style = Style(root)
 style.theme_use("clam")
 
+#get date and time from time lib
+date = time.strftime("%d/%m/%Y")
+time = time.strftime("%H:%M:%S")
+
+def update_time():
+    global time_var
+    time_var = datetime.now()
+    #print(time_var)  # Print the time to the console for demonstration purposes
+    root.after(1000, update_time)  # Schedule the next update
+
+time_var = datetime.now()
+
+
 def credits():
-    print("pressed credits button")
+    print(f"log {time_var} + pressed credits button")
     messagebox.showinfo("Credits", '''
     PASSWORD ALGORITHMS
     ALL RIGHTS RESERVED © 2023
@@ -40,14 +54,14 @@ def credits():
     ''')
 
 def back_to_black():
-    print("pressed back to black button")
+    print(f"log {time_var} ------->  pressed back to black button")
     
     for widget in root.winfo_children():
         widget.destroy()
     mainScreen()
 
 def password_generator():
-    print("opened password generator section...")
+    print(f"log {time_var} ------->  opened password generator section...")
     
     back_button = Button(root, text="<", font=("Helvetica", 15), bg=background, fg="red", command=back_to_black)
     back_button.place(x=10, y=27)
@@ -83,7 +97,7 @@ def password_generator():
     password_label.place(x=30, y=300)
 
     def generate():
-        print("Generating password...")
+        print(f"log {time_var} ------->  Generating password...")
         if specialCharacters_check.get() == 1:
             characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+*/=!&/()>£#$½§{[]}ğüşiöçĞÜŞİÖÇ@∑€®₺¥üiöπ¨~`æ´¬¨∆^ğƒ∂ßæ≈∫~µ≤≥÷|><|"
         else:
@@ -114,7 +128,7 @@ def password_generator():
     generate_button.place(x=10, y=250)
 
 def password_checker():
-    print("opened password checker section...")
+    print(f"log {time_var} ------->  opened password checker section...")
     back_button = Button(root, text="<", font=("Helvetica", 15), bg=background, fg="red", command=back_to_black, width=2)
     back_button.place(x=10, y=27)
 
@@ -137,7 +151,7 @@ def password_checker():
     result_label.place(x=10, y=300)
 
     def check_password():
-        print("Checking password...")
+        print(f"log {time_var} ------->  Checking password...")
         password = password_entry.get()
 
         uppercaseInPassword = sum(1 for harf in password if harf.isupper())
@@ -200,11 +214,11 @@ def password_checker():
 
         if is_leaked:
             (f'Your password has been leaked {count} times')
-            root.after(0, lambda: update_listbox(f'Was this password had pawned? : {count} times pwned!!!'))
+            root.after(0, lambda: update_listbox(f'Has this password been leaked before? : {count} times pwned!!!'))
             safetyPoint = "0 - Very Weak"
         else:
             print('Your password has not been leaked (yet)')
-            root.after(0, lambda: update_listbox(f'Was this password had pawned? : Your password is not pwned '))
+            root.after(0, lambda: update_listbox(f'Has this password been leaked before? : No it is not pwned! '))
 
         root.after(6000, lambda: update_listbox(f'Safety point (0-5): {safetyPoint}\n\n'))
     
@@ -212,7 +226,7 @@ def password_checker():
     check_button.place(x=100, y=150)
 
 def mainScreen():
-    print('Welcome to Password Algorithms')
+    print(f"log {time_var} ------->  Welcome to Password Algorithms")
     global password_generator_button, password_checker_button, ascii_art, Mainheader
     Mainheader = Label(root, text="Password Algorithms", font=("Comfortaa", 30, "bold"), bg=background, fg="white")
     Mainheader.place(x=90, y=20)
@@ -240,4 +254,6 @@ def mainScreen():
     credit.place(x=440, y=475)
 mainScreen()
 
+
+update_time()  # Start updating the time
 root.mainloop()
