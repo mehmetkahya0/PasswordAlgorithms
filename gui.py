@@ -1,8 +1,6 @@
 #password algorithm gui app (main.py + gui.py)
 # 11/22/2023
 # Mehmet Kahya
-
-
 import time
 import random
 import math
@@ -12,9 +10,6 @@ from tkinter import ttk
 from tkinter import font
 from tkinter.ttk import Style
 from passpwnedcheck.pass_checker import PassChecker
-
-
-
 
 root = Tk()
 root.title("Password Algorithms")
@@ -26,16 +21,11 @@ background = "#155b82"
 root.iconphoto(False, p1) 
 root.config(bg=background)
 
-
 style = Style(root)
 style.theme_use("clam")
 
-
-#change app name to "password algorithms"
-
-
-
 def credits():
+    print("pressed credits button")
     messagebox.showinfo("Credits", '''
     PASSWORD ALGORITHMS
     ALL RIGHTS RESERVED © 2023
@@ -49,17 +39,18 @@ def credits():
     11/22/2023
     ''')
 
-
 def back_to_black():
+    print("pressed back to black button")
+    
     for widget in root.winfo_children():
         widget.destroy()
     mainScreen()
 
 def password_generator():
+    print("opened password generator section...")
     
     back_button = Button(root, text="<", font=("Helvetica", 15), bg=background, fg="red", command=back_to_black)
     back_button.place(x=10, y=27)
-
 
     Mainheader.destroy()
     password_generator_button.destroy()
@@ -91,9 +82,8 @@ def password_generator():
     password_label = Label(root, text="", font=("Helvetica", 13), bg=background, fg="white")
     password_label.place(x=30, y=300)
 
-    
-
     def generate():
+        print("Generating password...")
         if specialCharacters_check.get() == 1:
             characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-+*/=!&/()>£#$½§{[]}ğüşiöçĞÜŞİÖÇ@∑€®₺¥üiöπ¨~`æ´¬¨∆^ğƒ∂ßæ≈∫~µ≤≥÷|><|"
         else:
@@ -120,11 +110,11 @@ def password_generator():
 
         add_password()  # Start adding passwords
 
-
     generate_button = Button(root, text="Generate", font=("Helvetica", 15, "bold"), bg=background, fg="red", command=generate)
     generate_button.place(x=10, y=250)
 
 def password_checker():
+    print("opened password checker section...")
     back_button = Button(root, text="<", font=("Helvetica", 15), bg=background, fg="red", command=back_to_black, width=2)
     back_button.place(x=10, y=27)
 
@@ -137,7 +127,6 @@ def password_checker():
     header = Label(root, text="Password Checker", font=("Helvetica", 30, "bold"), bg=background, fg="white")
     header.place(x=90, y=20)
 
-
     password_label = Label(root, text="Enter your password: ", font=("Helvetica", 20), bg=background, fg="white")
     password_label.place(x=10, y=100)
 
@@ -148,6 +137,7 @@ def password_checker():
     result_label.place(x=10, y=300)
 
     def check_password():
+        print("Checking password...")
         password = password_entry.get()
 
         uppercaseInPassword = sum(1 for harf in password if harf.isupper())
@@ -155,7 +145,6 @@ def password_checker():
 
         #calculate number of digits in password
         digits = sum(1 for harf in password if harf.isdigit())
-
 
         safetyPoint = 0
         if len(password) >= 8:
@@ -173,7 +162,6 @@ def password_checker():
         if any(not harf.isalnum() for harf in password):
             safetyPoint +=1
         
-
         if safetyPoint == 0:
             safetyPoint = "0 - Very Weak"
         if safetyPoint == 1:
@@ -181,11 +169,12 @@ def password_checker():
         if safetyPoint == 2:
             safetyPoint = "2 - Medium"
         if safetyPoint == 3:
-            safetyPoint = "3 - Strong"
+            safetyPoint = "3 - Strong even though unsafe"
         if safetyPoint == 4:
             safetyPoint = "4 - Very Strong"
         if safetyPoint == 5:
             safetyPoint = "5 - Extremely Strong"
+
         try_speed_per_second = 100000000
         lenOfCharacters = 62
 
@@ -195,10 +184,9 @@ def password_checker():
 
         result_listbox = Listbox(root, width=100, height=10, font=("Helvetica", 17))
         result_listbox.place(x=0, y=250)
+
         def update_listbox(text):
             result_listbox.insert(END, text)
-
-
 
         pass_checker = PassChecker()
         is_leaked, count = pass_checker.is_password_compromised(password)
@@ -210,7 +198,6 @@ def password_checker():
         root.after(4000, lambda: update_listbox(f'number of digits: {digits}'))
         root.after(5000, lambda: update_listbox(f'Cracking time: {cracking_time_day} sec'))
 
-
         if is_leaked:
             (f'Your password has been leaked {count} times')
             root.after(0, lambda: update_listbox(f'Was this password had pawned? : {count} times pwned!!!'))
@@ -219,17 +206,13 @@ def password_checker():
             print('Your password has not been leaked (yet)')
             root.after(0, lambda: update_listbox(f'Was this password had pawned? : Your password is not pwned '))
 
-
         root.after(6000, lambda: update_listbox(f'Safety point (0-5): {safetyPoint}\n\n'))
-        
-
-        
-
+    
     check_button = Button(root, text="Check", font=("Helvetica", 15), bg=background, fg="black", command=check_password, width=30)
     check_button.place(x=100, y=150)
 
-
 def mainScreen():
+    print('Welcome to Password Algorithms')
     global password_generator_button, password_checker_button, ascii_art, Mainheader
     Mainheader = Label(root, text="Password Algorithms", font=("Comfortaa", 30, "bold"), bg=background, fg="white")
     Mainheader.place(x=90, y=20)
@@ -239,7 +222,6 @@ def mainScreen():
 
     password_checker_button = Button(root, text="Password Checker", font=("Helvetica", 15, "bold"),  bg=background,fg='black',command=password_checker, width=20, height=10)
     password_checker_button.place(x=260, y=100)
-
 
     ascii_art = Label(root, text=
     '''
@@ -251,13 +233,8 @@ def mainScreen():
     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝''', font=("Helvatica", 10), bg=background, fg="white", cursor="heart red", justify="center", anchor="w")
     ascii_art.place(x=75, y=300)
 
-
     acopyright = Label(root, text="© 2023 - Password Algorithms - Mehmet Kahya", font=("Helvetica", 12, "bold"), bg=background, fg="white")
     acopyright.place(x=110, y=480)
-
-
-
-
 
     credit = Button(root, text="Credits", font=("Helvetica", 10, "bold"), bg=background, fg="black", command=credits)
     credit.place(x=440, y=475)
