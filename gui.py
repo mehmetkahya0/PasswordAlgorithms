@@ -54,7 +54,7 @@ def password_generator():
     password_checker_button.destroy()
     ascii_art.destroy()
 
-    header = Label(root, text="Password Generator", font=("Helvetica", 30, "bold"), bg="background, fg="white", cursor="heart")
+    header = Label(root, text="Password Generator", font=("Helvetica", 30, "bold"), bg=background, fg="white", cursor="heart")
     header.place(x=90, y=20)
     
     length = Label(root, text="Set the length of the password: ", font=("Helvetica", 15), bg=background, fg="white")
