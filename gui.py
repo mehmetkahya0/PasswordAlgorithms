@@ -1,8 +1,27 @@
 #password algorithm gui app (main.py + gui.py)
-# 22 Nov 2023 - 23 Nov 2023 - 24 Nov 2023 for gui.py
+# 11/22/2023
 # Total spend time for this project: 10 hours
 # Mehmet Kahya
 
+'''
+REQUIRED LIBRARYS:
+    -- tkinter --
+    pip install passpwnedcheck
+    pip install tkinter
+    pip install pillow
+    pip install requests
+'''
+''' 
+    TODO: 
+    [FIX] CREATE STYLE THEME FOR OS'S. SOLVE WINDOWS BUG!!!
+
+    [] Integrate OpenAI AI's into this project !! 
+    [] Create Class
+    [X] Create a better UI
+    [X] Create a better UX
+    [X] Create a better password generator algorithm
+    [X] Create a better password checker algorithm
+'''
 import time
 from datetime import datetime
 import random
@@ -16,7 +35,6 @@ from passpwnedcheck.pass_checker import PassChecker
 import platform 
 import os
 
-
 root = Tk()
 root.title("Password Algorithms")
 root.geometry("500x500")
@@ -27,13 +45,11 @@ background = "#155b82"
 root.iconphoto(False, p1) 
 root.config(bg=background)
 
-
 # Detect the operating system
 os_name = platform.system()
 
 # Set default sizes
 global font_size, font_size_small, header_font_size, label_x, entry_x, header_x, checkbutton_x
-
 font_size = 15
 font_size_small = 13
 header_font_size = 30
@@ -48,8 +64,8 @@ pass_y = 300
 copyright_x = 92
 copyright_y = 475
 copyright_font_size = 10
-password_check_entry_x = 215
-password_check_entry_y = 100
+password_check_entry_x = 275
+password_check_entry_y = 110
 result_listbox_height = 10
 result_listbox_width = 100
 
@@ -74,11 +90,6 @@ if os_name == "Windows":
     result_listbox_width = 50
     result_listbox_height = 10
     
-
-
-
-
-
 #get date and time from time lib
 date = time.strftime("%d/%m/%Y")
 time = time.strftime("%H:%M:%S")
@@ -90,7 +101,6 @@ def update_time():
     root.after(1000, update_time)  # Schedule the next update
 
 time_var = datetime.now()
-
 
 def credits():
     print(f"log {time_var} + pressed credits button")
@@ -107,7 +117,6 @@ def credits():
     last updated on 23 Nov 2023
     Version: 1.0.0
     ''')
-
 
 def back_to_black():
     print(f"log {time_var} ------->  pressed back to black button")
@@ -159,8 +168,6 @@ def password_generator():
         else:
             characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-
-
         alternative_entry_value = int(alternative_entry.get())
         length_entry_value = int(length_entry.get())
 
@@ -178,6 +185,7 @@ def password_generator():
                 password_listbox.insert(END, password)
                 file.write(password + '\n')  # Write the password to the file
                 root.after(500, add_password)  # Schedule the next call
+
             else:
                 file.close()  # Close the file when all passwords have been written
 
@@ -189,7 +197,7 @@ def password_generator():
 
         add_password()  # Start adding passwords
 
-    generate_button = Button(root, text="Generate", font=("Helvetica", font_size, "bold"), bg="white", fg="black", command=generate)
+    generate_button = Button(root, text="Generate", font=("Helvetica", font_size, "bold"), bg=background, fg="red", command=generate)
     generate_button.place(x=10, y=250)
 
 def password_checker():
@@ -316,8 +324,5 @@ def mainScreen():
     credit.place(x=430, y=475)
 
 mainScreen()
-
-
-
 update_time()  # Start updating the time
 root.mainloop()
