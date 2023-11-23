@@ -20,6 +20,8 @@ https://github.com/mehmetkahya0/PasswordAlgorithms/assets/84154488/a42fcabc-2ac5
 
 
 
+> [!IMPORTANT]
+> Now, PasswordAlgorithms support Windows, MacOS, and Linux directly!
 
 
 
