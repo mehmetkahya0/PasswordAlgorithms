@@ -10,12 +10,14 @@
 ![Coursera](https://img.shields.io/badge/Coursera-%230056D2.svg?style=for-the-badge&logo=Coursera&logoColor=white)
 ![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)
 ![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)
+
 ## Terminal Version
 https://github.com/mehmetkahya0/PasswordGenerator/assets/84154488/f1b35a7b-3bff-416f-bd0d-63bfee0b1225
 
 ## GUI Version
+https://github.com/mehmetkahya0/PasswordAlgorithms/assets/84154488/a42fcabc-2ac5-4737-bafb-e4d9d0ce3cc4
 
-https://github.com/mehmetkahya0/PasswordGenerator/assets/84154488/6e783939-ff4b-4201-968d-a401a0f9723d
+
 
 
 
