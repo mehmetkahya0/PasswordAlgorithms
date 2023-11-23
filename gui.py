@@ -3,6 +3,17 @@
 # Total spend time for this project: 5.5 hours
 # Mehmet Kahya
 
+
+''' 
+    TODO: 
+    [] Integrate OpenAI AI's into this project !! 
+    [] Create Class
+    [X] Create a better UI
+    [X] Create a better UX
+    [X] Create a better password generator algorithm
+    [X] Create a better password checker algorithm
+'''
+
 import time
 from datetime import datetime
 import random
@@ -18,7 +29,7 @@ root = Tk()
 root.title("Password Algorithms")
 root.geometry("500x500")
 root.resizable(False, False)
-p1 = PhotoImage(file = 'key-1.png') 
+p1 = PhotoImage(file = 'key.png') 
 background = "#155b82"
 # Setting icon of master window 
 root.iconphoto(False, p1) 
@@ -105,7 +116,7 @@ def password_generator():
         else:
             characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-        passwordList = []
+
 
         alternative_entry_value = int(alternative_entry.get())
         length_entry_value = int(length_entry.get())
@@ -113,10 +124,19 @@ def password_generator():
         password_listbox = Listbox(root, width=50, height=10, font=("Helvetica", 10))
         password_listbox.place(x=100, y=300)  # Adjust the position as needed
 
+        passwordList = []
+
+        # Open the file in write mode
+        file = open('passwords.txt', 'a')
+
         def add_password():
             if passwordList:
-                password_listbox.insert(END, passwordList.pop(0))
+                password = passwordList.pop(0)
+                password_listbox.insert(END, password)
+                file.write(password + '\n')  # Write the password to the file
                 root.after(500, add_password)  # Schedule the next call
+            else:
+                file.close()  # Close the file when all passwords have been written
 
         for _ in range(alternative_entry_value):
             password = ""
@@ -249,9 +269,10 @@ def mainScreen():
     acopyright = Label(root, text="© 2023 - Password Algorithms - Mehmet Kahya", font=("Helvetica", 12, "bold"), bg=background, fg="white")
     acopyright.place(x=110, y=480)
 
-    credit = Button(root, text="Credits", font=("Helvetica", 10, "bold"), bg=background, fg="black", command=credits)
-    credit.place(x=440, y=475)
+    credit = Button(root, text="Credits", font=("Helvetica", 10, "bold"), bg=background, fg="black", command=credits, bd=0)
+    credit.place(x=430, y=478)
 mainScreen()
+
 
 
 update_time()  # Start updating the time
