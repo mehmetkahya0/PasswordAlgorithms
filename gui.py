@@ -189,7 +189,7 @@ def password_generator():
 
         add_password()  # Start adding passwords
 
-    generate_button = Button(root, text="Generate", font=("Helvetica", font_size, "bold"), bg=background, fg="red", command=generate)
+    generate_button = Button(root, text="Generate", font=("Helvetica", font_size, "bold"), bg="white", fg="black", command=generate)
     generate_button.place(x=10, y=250)
 
 def password_checker():
