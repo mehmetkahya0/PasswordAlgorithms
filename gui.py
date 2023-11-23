@@ -1,6 +1,6 @@
 #password algorithm gui app (main.py + gui.py)
 # 11/22/2023
-# Total spend time for this project: 5.5 hours
+# Total spend time for this project: 10 hours
 # Mehmet Kahya
 
 '''
@@ -71,6 +71,9 @@ copyright_y = 475
 copyright_font_size = 10
 password_check_entry_x = 275
 password_check_entry_y = 110
+result_listbox_height = 10
+result_listbox_width = 100
+
 
 # Adjust sizes for Windows
 if os_name == "Windows":
@@ -89,6 +92,9 @@ if os_name == "Windows":
     copyright_font_size = 10
     password_check_entry_x = 275
     password_check_entry_y = 110
+    result_listbox_width = 50
+    result_listbox_height = 10
+    
 
 
 
@@ -134,7 +140,7 @@ def back_to_black():
 def password_generator():
     print(f"log {time_var} ------->  opened password generator section...")
     
-    back_button = Button(root, text="<", font=("Helvetica", font_size), bg=background, fg="red", command=back_to_black)
+    back_button = Button(root, text="<", font=("Helvetica", font_size), bg="white", fg="red", command=back_to_black)
     back_button.place(x=10, y=27)
 
     Mainheader.destroy()
@@ -273,7 +279,7 @@ def password_checker():
         cracking_time_sec = possible_password / try_speed_per_second
         cracking_time_day = cracking_time_sec / (60 * 60 * 24)
 
-        result_listbox = Listbox(root, width=100, height=10, font=("Helvetica", 17))
+        result_listbox = Listbox(root, width=result_listbox_width, height=result_listbox_height, font=("Helvetica", 15))
         result_listbox.place(x=0, y=250)
 
         def update_listbox(text):
@@ -299,7 +305,7 @@ def password_checker():
 
         root.after(6000, lambda: update_listbox(f'Safety point (0-5): {safetyPoint}\n\n'))
     
-    check_button = Button(root, text="Check", font=("Helvetica", font_size, "bold"), bg=background, fg="black", command=check_password, width=30)
+    check_button = Button(root, text="Check", font=("Helvetica", font_size, "bold"), bg="white", fg="black", command=check_password, width=30)
     check_button.place(x=100, y=150)
 
 def mainScreen():
