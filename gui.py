@@ -1,5 +1,5 @@
 #password algorithm gui app (main.py + gui.py)
-# 11/22/2023
+# 22 Nov 2023 - 23 Nov 2023 - 24 Nov 2023 for gui.py
 # Total spend time for this project: 10 hours
 # Mehmet Kahya
 
