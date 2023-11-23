@@ -3,27 +3,6 @@
 # Total spend time for this project: 10 hours
 # Mehmet Kahya
 
-'''
-REQUIRED LIBRARYS:
-    -- tkinter --
-    pip install passpwnedcheck
-    pip install tkinter
-    pip install pillow
-    pip install requests
-'''
-
-''' 
-    TODO: 
-    [FIX] CREATE STYLE THEME FOR OS'S. SOLVE WINDOWS BUG!!!
-
-    [] Integrate OpenAI AI's into this project !! 
-    [] Create Class
-    [X] Create a better UI
-    [X] Create a better UX
-    [X] Create a better password generator algorithm
-    [X] Create a better password checker algorithm
-'''
-
 import time
 from datetime import datetime
 import random
