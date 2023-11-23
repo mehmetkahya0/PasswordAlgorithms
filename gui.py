@@ -69,8 +69,8 @@ pass_y = 300
 copyright_x = 92
 copyright_y = 475
 copyright_font_size = 10
-password_check_entry_x = 275
-password_check_entry_y = 110
+password_check_entry_x = 215
+password_check_entry_y = 100
 result_listbox_height = 10
 result_listbox_width = 100
 
