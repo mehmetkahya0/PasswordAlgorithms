@@ -3,7 +3,15 @@
 # Total spend time for this project: 5.5 hours
 # Mehmet Kahya
 
-# Github repo: PasswordAlgorithms
+'''
+REQUIRED LIBRARYS:
+    -- tkinter --
+    pip install passpwnedcheck
+    pip install tkinter
+    pip install pillow
+    pip install requests
+'''
+
 ''' 
     TODO: 
     [] Integrate OpenAI AI's into this project !! 
@@ -63,9 +71,9 @@ def credits():
 
     Special thanks to: @ayseguldemireel for better UI experience. 
 
-    11/22/2023
+    last updated on 23 Nov 2023
+    Version: 1.0.0
     ''')
-
 def back_to_black():
     print(f"log {time_var} ------->  pressed back to black button")
     
