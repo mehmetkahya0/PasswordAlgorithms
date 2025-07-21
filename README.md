@@ -77,7 +77,6 @@ This project is under MIT license.
 
 
 
-> _special thanks to @ayseguldemireel for better UI experiance._
 
 
 
